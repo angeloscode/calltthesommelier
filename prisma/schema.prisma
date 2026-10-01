@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum WineColor {
+  WHITE
+  RED
+  ROSE
+  ORANGE
+  SPARKLING
+}
+
+enum WineSweetness {
+  DRY
+  SEMI_DRY
+  SEMI_SWEET
+  SWEET
+}
+
+/// Карточка вина: поля повторяют шаблон карточки на сайте.
+model Wine {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  /// Название без бренда: «Ркацители–Мцване»
+  name         String
+  vintage      Int
+  color        WineColor
+  sweetness    WineSweetness
+  /// «ЗГУ «Кубань»» или «ЗГУ «Кубань. Долина реки Афипс»»
+  appellation  String
+  /// Короткое описание под названием
+  intro        String
+  origin       String        @default("Россия, Краснодарский край")
+  grapes       String
+  aging        String?
+  abv          String
+  serving      String
+  /// Цвет вина в бокале
+  appearance   String
+  aroma        String
+  taste        String
+  pairing      String
+  imageMain    String
+  imageDetail  String?
+  purchaseUrl  String?
+  published    Boolean       @default(true)
+  sortOrder    Int           @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([published, sortOrder])
+}

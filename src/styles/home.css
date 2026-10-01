@@ -1,0 +1,833 @@
+/* Главная страница: вёрстка по макету Tilda (контейнер 1200/1160, брейкпоинты 1199/959/639/479) */
+
+.lp-page {
+  --lp-bg: var(--color-wine);
+  --lp-text: #dfdfdf;
+  --lp-line: #dfdfdf;
+  --lp-accent: #ea3048;
+  --lp-button: #ff4a4a;
+  --lp-muted: #bdbaba;
+  --lp-edge: max(20px, calc(50cqw - 580px));
+  container-type: inline-size;
+  background: var(--lp-bg);
+  color: var(--lp-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.lp-container {
+  width: min(100% - 40px, 1160px);
+  margin-inline: auto;
+}
+
+.lp-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-cover img {
+  object-fit: cover;
+}
+
+.lp-display {
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.lp-lead {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.lp-lead p + p {
+  margin-top: 1.5em;
+}
+
+.lp-logo {
+  display: inline-block;
+  transition: opacity 180ms ease;
+}
+
+.lp-logo:hover {
+  opacity: 0.8;
+}
+
+.lp-logo img {
+  display: block;
+  width: 169px;
+  height: auto;
+}
+
+/* Header */
+
+.lp-header {
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-header .lp-container {
+  padding: 22px 0 16px;
+}
+
+/* Hero */
+
+.lp-hero-head {
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-hero-head h1 {
+  padding: 32px 0 28px;
+}
+
+.lp-hero-body {
+  display: grid;
+  grid-template-columns: calc(var(--lp-edge) + 500px) minmax(0, 1fr);
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-hero-media {
+  border-right: 1px solid var(--lp-line);
+  padding: 60px 60px 60px 0;
+}
+
+.lp-hero-media .lp-cover {
+  height: 430px;
+}
+
+.lp-hero-copy {
+  max-width: 559px;
+  padding: 60px 20px 60px 60px;
+}
+
+/* Story */
+
+.lp-story {
+  display: grid;
+  grid-template-columns: calc(var(--lp-edge) + 860px) minmax(0, 1fr);
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-story-copy {
+  border-right: 1px solid var(--lp-line);
+  padding: 100px 100px 60px var(--lp-edge);
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.lp-story-copy p {
+  max-width: 760px;
+}
+
+.lp-story-copy p + p {
+  margin-top: 1.4em;
+}
+
+.lp-story-media {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 40px 0 40px 40px;
+}
+
+.lp-story-media .lp-cover {
+  flex: none;
+  width: 430px;
+  height: 400px;
+}
+
+/* Gallery */
+
+.lp-gallery-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border-bottom: 1px solid var(--lp-line);
+  background: linear-gradient(var(--lp-line), var(--lp-line)) no-repeat 50% 0 / 1px 100%;
+}
+
+.lp-gallery-wide {
+  height: 600px;
+  margin: 40px 40px 40px 0;
+}
+
+.lp-gallery-tall {
+  width: min(100% - 40px - var(--lp-edge), 540px);
+  height: 600px;
+  margin: 40px 0 40px 40px;
+}
+
+.lp-gallery-bottom {
+  display: grid;
+  grid-template-columns:
+    calc(var(--lp-edge) + 160px)
+    calc(50cqw - var(--lp-edge) - 160px)
+    minmax(0, 1fr);
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-gallery-tractor {
+  height: 390px;
+  margin: 40px 40px 40px 0;
+}
+
+.lp-gallery-crate-cell {
+  display: grid;
+  place-items: center;
+  border-inline: 1px solid var(--lp-line);
+  padding: 40px 20px;
+}
+
+.lp-gallery-crate {
+  width: min(264px, 100%);
+  aspect-ratio: 1;
+}
+
+.lp-gallery-copy {
+  align-self: center;
+  max-width: 469px;
+  padding: 40px var(--lp-edge) 40px 50px;
+  box-sizing: content-box;
+}
+
+/* Section headings */
+
+.lp-section-head h2 {
+  padding: 105px 0 61px;
+}
+
+.lp-section-head--line {
+  border-bottom: 1px solid var(--lp-line);
+}
+
+/* Terroir */
+
+.lp-terroir-row {
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-terroir-grid {
+  display: grid;
+  grid-template-columns: 102px minmax(0, 560px) minmax(40px, 1fr) 426px;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "num title . media"
+    "num text  . media";
+  padding: 45px 0;
+}
+
+.lp-terroir-row--reverse .lp-terroir-grid {
+  grid-template-columns: 426px minmax(40px, 1fr) 102px minmax(0, 560px);
+  grid-template-areas:
+    "media . num title"
+    "media . num text";
+}
+
+.lp-terroir-number {
+  grid-area: num;
+  color: var(--lp-accent);
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.lp-terroir-title {
+  grid-area: title;
+  padding-top: 6px;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.lp-terroir-text {
+  grid-area: text;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.lp-terroir-media {
+  grid-area: media;
+  align-self: center;
+  height: 220px;
+}
+
+/* Wines */
+
+.lp-wine {
+  padding: 120px 0;
+}
+
+.lp-wine + .lp-wine {
+  padding-top: 0;
+}
+
+.lp-wine-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(0, 360px);
+  justify-content: space-between;
+  align-items: start;
+}
+
+.lp-wine-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lp-wine-gallery img + img {
+  margin-top: 4px;
+}
+
+.lp-wine-info {
+  position: sticky;
+  top: 80px;
+  color: #fff;
+  font-family: var(--font-tilda);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+.lp-wine-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.lp-wine-title::first-line {
+  text-transform: uppercase;
+}
+
+.lp-wine-category {
+  margin-top: 4px;
+  color: var(--lp-muted);
+}
+
+.lp-wine-intro {
+  margin-top: 38px;
+}
+
+.lp-wine-facts {
+  margin-top: 1.35em;
+}
+
+.lp-wine-facts strong {
+  font-weight: 600;
+}
+
+.lp-wine-buy {
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  margin-top: 20px;
+  padding: 0 24px;
+  border-radius: 30px;
+  background: var(--lp-button);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 200ms ease-in-out;
+}
+
+.lp-wine-buy:hover {
+  background: #e83838;
+}
+
+/* History */
+
+.lp-history-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "n1 n2"
+    "b1 b2"
+    "n3 n4"
+    "b3 b4";
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-history-step {
+  display: contents;
+}
+
+.lp-history-number,
+.lp-history-body {
+  border-bottom: 1px solid var(--lp-line);
+}
+
+.lp-history-number {
+  display: block;
+  padding: 30px 40px 40px;
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.lp-history-body {
+  padding: 40px 40px 40px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.lp-history-step--1 .lp-history-number { grid-area: n1; text-align: right; }
+.lp-history-step--2 .lp-history-number { grid-area: n2; color: var(--lp-accent); }
+.lp-history-step--3 .lp-history-number { grid-area: n3; color: var(--lp-accent); }
+.lp-history-step--4 .lp-history-number { grid-area: n4; text-align: right; }
+.lp-history-step--1 .lp-history-body { grid-area: b1; }
+.lp-history-step--2 .lp-history-body { grid-area: b2; }
+.lp-history-step--3 .lp-history-body { grid-area: b3; }
+.lp-history-step--4 .lp-history-body { grid-area: b4; }
+
+.lp-history-step:nth-child(odd) > * {
+  border-right: 1px solid var(--lp-line);
+  padding-left: var(--lp-edge);
+}
+
+.lp-history-step:nth-child(even) > * {
+  padding-right: var(--lp-edge);
+}
+
+.lp-history-step:nth-child(n + 3) .lp-history-body {
+  border-bottom: 0;
+}
+
+.lp-history-body > * {
+  max-width: 540px;
+}
+
+.lp-history-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.lp-history-body p {
+  margin-top: 20px;
+}
+
+.lp-history-body p + p {
+  margin-top: 1.55em;
+}
+
+.lp-history-media {
+  aspect-ratio: 540 / 280;
+}
+
+.lp-history-media + h3 {
+  margin-top: 40px;
+}
+
+.lp-history-body p + .lp-history-media {
+  margin-top: 36px;
+}
+
+/* Footer */
+
+.lp-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.lp-footer-brand {
+  border-right: 1px solid var(--lp-line);
+  padding: 50px 40px 40px var(--lp-edge);
+}
+
+.lp-footer-name {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: opacity 180ms ease;
+}
+
+.lp-footer-name:hover {
+  opacity: 0.8;
+}
+
+.lp-footer-tagline {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.lp-footer-copy {
+  margin-top: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1199px) {
+  .lp-display {
+    font-size: 60px;
+  }
+
+  .lp-story {
+    grid-template-columns: calc(var(--lp-edge) + 620px) minmax(0, 1fr);
+  }
+
+  .lp-story-copy {
+    padding: 60px 40px 60px var(--lp-edge);
+    font-size: 40px;
+  }
+
+  .lp-gallery-bottom {
+    grid-template-columns:
+      calc(var(--lp-edge) + 220px)
+      calc(50cqw - var(--lp-edge) - 220px)
+      minmax(0, 1fr);
+  }
+
+  .lp-gallery-copy {
+    padding-left: 40px;
+  }
+
+  .lp-section-head h2 {
+    padding: 80px 0 50px;
+  }
+
+  .lp-terroir-grid {
+    grid-template-columns: 80px minmax(0, 1fr) 40px minmax(0, 380px);
+  }
+
+  .lp-terroir-row--reverse .lp-terroir-grid {
+    grid-template-columns: minmax(0, 380px) 40px 80px minmax(0, 1fr);
+  }
+
+  .lp-terroir-number {
+    font-size: 40px;
+  }
+
+  .lp-terroir-title {
+    padding-top: 0;
+    font-size: 34px;
+  }
+
+  .lp-wine-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 959px) {
+  .lp-display {
+    font-size: 55px;
+  }
+
+  .lp-hero-body,
+  .lp-story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lp-hero-media {
+    border-right: 0;
+    padding: 40px var(--lp-edge) 0;
+  }
+
+  .lp-hero-media .lp-cover {
+    height: auto;
+    aspect-ratio: 620 / 430;
+  }
+
+  .lp-hero-copy {
+    max-width: none;
+    padding: 40px var(--lp-edge) 60px;
+  }
+
+  .lp-story-media {
+    order: -1;
+    flex-direction: row;
+    padding: 40px var(--lp-edge) 0;
+  }
+
+  .lp-story-media .lp-cover {
+    flex: 1 1 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: 300 / 280;
+  }
+
+  .lp-story-copy {
+    border-right: 0;
+    padding: 40px var(--lp-edge) 60px;
+  }
+
+  .lp-gallery-wide,
+  .lp-gallery-tall {
+    height: 400px;
+  }
+
+  .lp-gallery-wide {
+    margin: 30px 30px 30px 0;
+  }
+
+  .lp-gallery-tall {
+    width: auto;
+    margin: 30px var(--lp-edge) 30px 30px;
+  }
+
+  .lp-gallery-bottom {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+
+  .lp-gallery-tractor {
+    height: auto;
+    aspect-ratio: 1;
+    margin: 30px 10px 0 var(--lp-edge);
+  }
+
+  .lp-gallery-crate-cell {
+    display: block;
+    border: 0;
+    padding: 30px var(--lp-edge) 0 10px;
+  }
+
+  .lp-gallery-crate {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .lp-gallery-copy {
+    grid-column: 1 / -1;
+    max-width: none;
+    padding: 30px var(--lp-edge) 40px;
+  }
+
+  .lp-section-head h2 {
+    padding: 60px 0 40px;
+  }
+
+  .lp-terroir-grid,
+  .lp-terroir-row--reverse .lp-terroir-grid {
+    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "num title"
+      ".   text"
+      ".   media";
+    padding: 40px 0;
+  }
+
+  .lp-terroir-media {
+    height: auto;
+    aspect-ratio: 484 / 220;
+    margin-top: 30px;
+  }
+
+  .lp-wine {
+    padding: 80px 0;
+  }
+
+  .lp-wine-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 23px;
+  }
+
+  .lp-wine-info {
+    position: static;
+  }
+
+  .lp-wine-intro {
+    margin-top: 24px;
+  }
+
+  .lp-wine-intro {
+    margin-top: 24px;
+  }
+
+  .lp-history-number {
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 639px) {
+  .lp-display {
+    font-size: 40px;
+  }
+
+  .lp-hero-head h1 {
+    padding: 40px 0 36px;
+  }
+
+  .lp-lead {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .lp-story-copy {
+    font-size: 30px;
+  }
+
+  .lp-gallery-top {
+    grid-template-columns: minmax(0, 1fr);
+    background: none;
+  }
+
+  .lp-gallery-wide {
+    height: auto;
+    aspect-ratio: 3 / 2;
+    margin: 30px var(--lp-edge) 0;
+  }
+
+  .lp-gallery-tall {
+    justify-self: end;
+    width: 72%;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 30px var(--lp-edge) 30px 0;
+  }
+
+  .lp-section-head h2 {
+    padding: 40px 0 30px;
+  }
+
+  .lp-terroir-grid,
+  .lp-terroir-row--reverse .lp-terroir-grid {
+    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-areas:
+      "num   title"
+      "text  text"
+      "media media";
+    padding: 32px 0;
+  }
+
+  .lp-terroir-number {
+    padding-top: 2px;
+    font-size: 30px;
+  }
+
+  .lp-terroir-title {
+    font-size: 30px;
+  }
+
+  .lp-terroir-text {
+    margin-top: 20px;
+  }
+
+  .lp-terroir-media {
+    margin-top: 24px;
+  }
+
+  .lp-wine {
+    padding: 60px 0;
+  }
+
+  .lp-history-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+  }
+
+  .lp-history-step {
+    display: block;
+  }
+
+  .lp-history-step > *,
+  .lp-history-step:nth-child(odd) > *,
+  .lp-history-step:nth-child(even) > * {
+    grid-area: auto;
+    border-right: 0;
+    padding-inline: var(--lp-edge);
+    text-align: left;
+  }
+
+  .lp-history-step:nth-child(n + 3) .lp-history-body {
+    border-bottom: 1px solid var(--lp-line);
+  }
+
+  .lp-history-step:last-child .lp-history-body {
+    border-bottom: 0;
+  }
+
+  .lp-history-number {
+    padding-block: 24px;
+  }
+
+  .lp-history-body {
+    padding-block: 30px;
+  }
+
+  .lp-history-media + h3 {
+    margin-top: 30px;
+  }
+
+  .lp-footer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lp-footer-brand {
+    border-right: 0;
+    padding: 30px var(--lp-edge);
+  }
+
+  .lp-footer-aside {
+    display: none;
+  }
+
+  .lp-footer-name {
+    font-size: 26px;
+  }
+
+  .lp-footer-copy {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 479px) {
+  .lp-display {
+    font-size: 34px;
+  }
+
+  .lp-logo img {
+    width: 120px;
+  }
+
+  .lp-header .lp-container {
+    padding: 11px 0 6px;
+  }
+
+  .lp-hero-head h1 {
+    padding: 44px 0 36px;
+  }
+
+  .lp-story-copy {
+    font-size: 24px;
+  }
+
+  .lp-gallery-bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lp-gallery-tractor {
+    margin: 30px var(--lp-edge) 0;
+  }
+
+  .lp-gallery-crate-cell {
+    display: none;
+  }
+
+  .lp-terroir-grid,
+  .lp-terroir-row--reverse .lp-terroir-grid {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .lp-terroir-number {
+    padding-top: 3px;
+    font-size: 24px;
+  }
+
+  .lp-terroir-title {
+    font-size: 26px;
+  }
+
+  .lp-terroir-text {
+    font-size: 18px;
+  }
+
+  .lp-history-number {
+    font-size: 72px;
+  }
+}

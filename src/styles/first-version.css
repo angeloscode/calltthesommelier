@@ -1,0 +1,418 @@
+/* Стили страницы /first-version (Tailwind + собственные классы) */
+
+.font-display {
+  font-family: var(--font-futura);
+}
+
+.eyebrow {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-bottles {
+  width: min(100%, 560px);
+  height: auto;
+}
+
+.hero-title {
+  max-width: none;
+}
+
+.text-link {
+  border-bottom: 1px solid rgb(255 255 255 / 55%);
+  padding-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-nav a,
+.text-link,
+.brand-mark,
+.footer-top-link {
+  transition: opacity 180ms ease;
+}
+
+.site-nav a:hover,
+.text-link:hover,
+.brand-mark:hover,
+.footer-top-link:hover {
+  opacity: 0.72;
+}
+
+.site-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgb(255 255 255 / 48%);
+}
+
+.story-gallery {
+  position: relative;
+  min-height: 560px;
+}
+
+.story-photo,
+.terroir-image {
+  position: absolute;
+  overflow: hidden;
+}
+
+.story-photo img,
+.terroir-image img {
+  object-fit: cover;
+}
+
+.story-photo-main {
+  inset: 0 12% 12% 0;
+}
+
+.story-photo-detail {
+  inset: 42% 0 0 48%;
+  border: 10px solid #f0ece2;
+}
+
+.story-gallery-note {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.story-ribbon-track {
+  animation: ribbon-drift 32s linear infinite;
+}
+
+.terroir-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 36px;
+  border-bottom: 1px solid rgb(33 28 25 / 26%);
+  padding: 42px 0;
+}
+
+.terroir-row-first {
+  padding-top: 0;
+}
+
+.terroir-row-third {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.terroir-number {
+  align-self: start;
+  color: #8a3027;
+  font-family: var(--font-futura);
+  font-size: 22px;
+}
+
+.terroir-copy {
+  align-self: start;
+}
+
+.terroir-copy h3 {
+  max-width: 420px;
+  font-family: var(--font-futura);
+  font-size: 32px;
+  line-height: 1.08;
+}
+
+.terroir-copy p {
+  max-width: 480px;
+  margin-top: 18px;
+  color: #625a51;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.terroir-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.wine-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(40px, 8vw, 120px);
+  touch-action: pan-y;
+}
+
+.wine-feature:focus-visible {
+  outline: 2px solid #e5c99d;
+  outline-offset: 12px;
+}
+
+.wine-bottle-stage {
+  position: relative;
+  min-height: 580px;
+  background: radial-gradient(ellipse at 48% 45%, rgb(255 255 255 / 12%), transparent 57%);
+}
+
+.wine-bottle {
+  object-fit: contain;
+  padding: 28px;
+  animation: bottle-arrive 420ms ease both;
+}
+
+.wine-image-label {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  color: rgb(255 255 255 / 58%);
+  font-family: var(--font-futura);
+  font-size: 18px;
+}
+
+.wine-details {
+  max-width: 600px;
+  min-width: 0;
+}
+
+.wine-slides {
+  display: grid;
+}
+
+.wine-slide {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 260ms ease, visibility 0s linear 260ms;
+}
+
+.wine-slide-active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 260ms ease;
+}
+
+.wine-name {
+  font-size: 56px;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.wine-dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgb(255 255 255 / 62%);
+  border-radius: 50%;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.wine-dot-active {
+  transform: scale(1.25);
+  background: #e5c99d;
+  border-color: #e5c99d;
+}
+
+.wine-arrow {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 44%);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.wine-arrow:hover {
+  background: #f0ece2;
+  color: #211c19;
+}
+
+.footer-top-link {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 40%);
+  font-size: 20px;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px 80px;
+  list-style: none;
+}
+
+.history-step {
+  border-top: 1px solid rgb(33 28 25 / 26%);
+  padding-top: 28px;
+}
+
+.history-number {
+  display: block;
+  color: #8a3027;
+  font-family: var(--font-futura);
+  font-size: 56px;
+  line-height: 1;
+}
+
+.history-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+.history-image img {
+  object-fit: cover;
+}
+
+.history-title {
+  margin-top: 28px;
+  font-family: var(--font-futura);
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.history-text {
+  max-width: 560px;
+  margin-top: 16px;
+  color: #625a51;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+@keyframes ribbon-drift {
+  to { transform: translateX(-18%); }
+}
+
+@keyframes bottle-arrive {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1023px) {
+  .wine-name {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-nav {
+    position: absolute;
+    inset: 0 0 auto;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 100px 24px 34px;
+    background: #720005;
+    font-size: 18px;
+  }
+
+  .site-nav-open {
+    display: flex;
+  }
+
+  .site-menu-toggle {
+    position: relative;
+    z-index: 2;
+    display: flex;
+  }
+
+  .hero-bottles {
+    width: min(100%, 380px);
+  }
+
+  .hero-title {
+    max-width: 7ch;
+  }
+
+  .story-gallery {
+    min-height: 390px;
+  }
+
+  .story-photo-detail {
+    border-width: 7px;
+  }
+
+  .terroir-row,
+  .terroir-row-third {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 16px;
+    padding: 30px 0;
+  }
+
+  .terroir-row-first {
+    padding-top: 0;
+  }
+
+  .terroir-number {
+    font-size: 18px;
+  }
+
+  .terroir-copy h3 {
+    font-size: 26px;
+  }
+
+  .terroir-copy p {
+    font-size: 18px;
+  }
+
+  .terroir-image {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+  }
+
+  .wine-feature {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .history-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .history-number {
+    font-size: 44px;
+  }
+
+  .history-title {
+    font-size: 26px;
+  }
+
+  .wine-bottle-stage {
+    min-height: 340px;
+  }
+
+  .wine-bottle {
+    padding: 12px;
+  }
+
+  .wine-name {
+    font-size: 38px;
+  }
+
+  .wine-controls {
+    margin-top: 38px;
+  }
+}
