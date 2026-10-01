@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { defineConfig, env } from "prisma/config";
+import { defineConfig } from "prisma/config";
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
@@ -8,6 +8,8 @@ export default defineConfig({
     seed: "tsx prisma/seed.ts",
   },
   datasource: {
-    url: env("DATABASE_URL"),
+    // Не env("DATABASE_URL"): тот падает без переменной, а `prisma generate` (postinstall)
+    // базу не трогает — сборка должна проходить и без БД (например, на Vercel до её подключения).
+    url: process.env.DATABASE_URL ?? "",
   },
 });
